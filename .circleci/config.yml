@@ -53,7 +53,7 @@ jobs:
             if [ "${CURRENT_BRANCH}" == "main" ]
             then
               aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_BUCKET_PRODUCTION} --delete
-            elseif [ "${CURRENT_BRANCH}" == "staging" ]
+            elif [ "${CURRENT_BRANCH}" == "staging" ]
             then
               aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_BUCKET_STAGING} --delete
             else
@@ -92,7 +92,7 @@ jobs:
             if [ "${CURRENT_BRANCH}" == "main" ]
             then
               aws cloudfront create-invalidation --distribution ${PRODUCTION_DISTRIBUTION_ID} --paths /\*
-            elseif [ "${CURRENT_BRANCH}" == "staging" ]
+            elif [ "${CURRENT_BRANCH}" == "staging" ]
             then
               aws cloudfront create-invalidation --distribution ${STAGING_DISTRIBUTION_ID} --paths /\*
             else
